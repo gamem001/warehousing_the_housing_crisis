@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Dev Challenge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./web_visualizations/assets/style_sheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="index.html">Weather Check</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="navbar-item dropdown">
+            <a class="btn btn-secondary nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Considerations
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item link-text-color" href="./web_visualizations/html/comparisons_page.html">Comparisons</a>
+                <br>
+                <a class="dropdown-item link-text-color" href="./web_visualizations/html/data_page.html">Data</a>
+                <br>
+                <a class="dropdown-item link-text-color" href="./web_visualizations/html/analysis_page.html">Analysis</a>
+            </div>
+        </li>
+        <li class="navbar-item dropdown">
+            <a class="btn btn-secondary nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plots
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="link-text-color" href="./web_visualizations/html/visualizations/visualization1.html">Cloudiness</a>
+                <br>
+                <a class="link-text-color" href="./web_visualizations/html/visualizations/visualization2.html">Wind Speed</a>
+                <br>
+                <a class="link-text-color" href="./web_visualizations/html/visualizations/visualization3.html">Max Temperature</a>
+                <br>
+                <a class="link-text-color" href="./web_visualizations/html/visualizations/visualization4.html">Humidity</a>
+            </div>
+        </li>
+      </ul>
+    </div>
+</nav>
+<div class="container text-center d-flex">    
+  <div class="row justify-content-around">
+      <div class="col-md-5 col-8 text-center column-card-styling fancy-borders">
+        <h1 class="landing-title"><strong>How's The Weather Over There?</strong></h1>
+        <hr>
+        <p class="intro-text">Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. Using Python requests, APIs, and JSON traversals we will be looking to answer a fundamental question: "What is the weather like as we approach the equator?" Now, we know what you may be thinking: "Duh. It gets hotter..." But, if pressed, how would you prove it?
+        <br>
+        <br>
+        <br>
+        For this project, we've created a Python script to visualize the weather of 500+ cities across the globe with varying distances from the equator. To accomplish this, we utilized a simple Python library, the <i>OpenWeatherMap API</i>, and a little common sense to create a representative model of the weather around the world.
+        </p>
+      </div>
+      <div class="col-md-6 col-12 text-center column-spacer column-card-styling fancy-borders"> 
+          <div class="row align-items-end">
+          <h2 class="landing-title"><strong>Visualizations</strong></h2>
+            <div class="col-md-6 col-12">
+              <a href="./web_visualizations/html/visualizations/visualization1.html">
+              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Hemisphere%20Cloudiness%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Hemisphere Cloudiness v Latitude Linear Regression" class="landing-image">
+              </a>
+            </div>
+            <div class="col-md-6 col-8">
+              <a href="./web_visualizations/html/visualizations/visualization4.html">
+              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Hemisphere%20Humidity%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Hemisphere Humidity v Latitude Linear Regression" class="landing-image">
+              </a>
+            </div>
+            <div class="col-md-6 col-12">
+              <a href="./web_visualizations/html/visualizations/visualization2.html">
+              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Hemisphere%20Wind%20Speed%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Hemisphere Wind Speed v Latitude Linear Regression" class="landing-image">
+              </a>
+            </div>
+            <div class="col-md-6 col-12">
+              <a href="./web_visualizations/html/visualizations/visualization3.html">
+              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Max%20Temp%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Max Temp v Latitude Linear Regression" class="landing-image">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+</body>
+</html>
+
