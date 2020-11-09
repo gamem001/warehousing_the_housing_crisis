@@ -5,7 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./web_visualizations/assets/style_sheet.css">
+  <link rel="stylesheet" href="/static/test/StarterCode/assets/css/style.css">
+  <link rel="stylesheet" href="/static/test/StarterCode/assets/css/d3Style.css">
+  <link rel="stylesheet" href="/static/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
@@ -18,25 +20,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">Weather Check</a>
+      <a class="navbar-brand" href="index.html">Go Home</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="navbar-item dropdown">
             <a class="btn btn-secondary nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Considerations
+                Contributors
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item link-text-color" href="./web_visualizations/html/comparisons_page.html">Comparisons</a>
+                <a class="dropdown-item link-text-color" href="https://asia-hewett.github.io/">Asia</a>
                 <br>
-                <a class="dropdown-item link-text-color" href="./web_visualizations/html/data_page.html">Data</a>
+                <a class="dropdown-item link-text-color" href="https://kruhl1662.github.io/">Kristina</a>
                 <br>
-                <a class="dropdown-item link-text-color" href="./web_visualizations/html/analysis_page.html">Analysis</a>
+                <a class="dropdown-item link-text-color" href="https://github.com/gamem001/gamem001.github.io">Melissa</a>
             </div>
         </li>
         <li class="navbar-item dropdown">
             <a class="btn btn-secondary nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Plots
+                Helpful Organizations
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="link-text-color" href="./web_visualizations/html/visualizations/visualization1.html">Cloudiness</a>
@@ -53,38 +55,34 @@
 </nav>
 <div class="container text-center d-flex">    
   <div class="row justify-content-around">
-      <div class="col-md-5 col-8 text-center column-card-styling fancy-borders">
-        <h1 class="landing-title"><strong>How's The Weather Over There?</strong></h1>
+      <div class="col-lg-12 text-center column-card-styling fancy-borders">
+        <h1 class="landing-title"><strong>Warehousing The Housing Crisis</strong></h1>
         <hr>
-        <p class="intro-text">Whether financial, political, or social -- data's true power lies in its ability to answer questions definitively. Using Python requests, APIs, and JSON traversals we will be looking to answer a fundamental question: "What is the weather like as we approach the equator?" Now, we know what you may be thinking: "Duh. It gets hotter..." But, if pressed, how would you prove it?
+        <p class="intro-text">"The United States may be facing the most severe housing crisis in its history.” So begins a memo, published by a group of U.S. housing policy experts last month, about a looming eviction emergency. Between 30 million and 40 million Americans could soon be forced from their homes, the authors warn, after COVID-19 protections and aid packages expire. But the housing crisis in the United States isn’t a product of the pandemic alone. Rather, it has been quietly building for half a century. Restrictive zoning and building laws have produced an acute shortage of housing, pushing real estate prices ever higher—and out of reach for a growing number of Americans. 
         <br>
-        <br>
-        <br>
-        For this project, we've created a Python script to visualize the weather of 500+ cities across the globe with varying distances from the equator. To accomplish this, we utilized a simple Python library, the <i>OpenWeatherMap API</i>, and a little common sense to create a representative model of the weather around the world.
+        <i>By Sam Winter-Levy and Bryan Schonfeld September 14, 2020</i>
         </p>
       </div>
-      <div class="col-md-6 col-12 text-center column-spacer column-card-styling fancy-borders"> 
+      <div class="col-lg-12 text-center column-spacer column-card-styling fancy-borders"> 
           <div class="row align-items-end">
-          <h2 class="landing-title"><strong>Visualizations</strong></h2>
-            <div class="col-md-6 col-12">
-              <a href="./web_visualizations/html/visualizations/visualization1.html">
-              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Hemisphere%20Cloudiness%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Hemisphere Cloudiness v Latitude Linear Regression" class="landing-image">
+          <h2 class="landing-title"><strong>2007-2016<br> Click The Interactive Visuals to Learn More</strong></h2>
+            <div class="col-md-6 col-6">
+              <class="row">
+                <div id="scatter">
               </a>
             </div>
-            <div class="col-md-6 col-8">
+            <div class="col-md-6 col-6">
               <a href="./web_visualizations/html/visualizations/visualization4.html">
-              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Hemisphere%20Humidity%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Hemisphere Humidity v Latitude Linear Regression" class="landing-image">
-              </a>
+              <class="row"
+                <div id="choropleth"></div>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+            <script type="text/javascript" src="./static/test/StarterCode/assets/js/app.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
             </div>
-            <div class="col-md-6 col-12">
-              <a href="./web_visualizations/html/visualizations/visualization2.html">
-              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Hemisphere%20Wind%20Speed%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Hemisphere Wind Speed v Latitude Linear Regression" class="landing-image">
-              </a>
             </div>
-            <div class="col-md-6 col-12">
-              <a href="./web_visualizations/html/visualizations/visualization3.html">
-              <img src="https://github.com/Asia-Hewett/python_api_challenge/blob/master/photos/Northern%20Max%20Temp%20v%20Latitude%20Linear%20Regression.png?raw=true" alt="Northern Max Temp v Latitude Linear Regression" class="landing-image">
-              </a>
             </div>
           </div>
         </div>
