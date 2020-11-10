@@ -3,7 +3,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 import requests
 import numpy as np
 import sqlite3
@@ -33,19 +33,19 @@ income_data = pd.read_sql('SELECT * FROM avg_income_data', con=engine)
 home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 
 ## need return to reflect the index
-@app.route("/")
-def welcome():
-    return render_template("index.html")
-
-## Initializing the api so we know it works with routes
 # @app.route("/")
 # def welcome():
-#     return (
-#         f"Welcome to the Warehouse of Housing Data API!<br/>"
-#         f"Available Routes:<br/>"
-#         f"/api/v1.0/all_data<br/>"
-#         f"/api/v1.0/data_2016<br/>"
-#     )
+#     return render_template("index.html")
+
+## Initializing the api so we know it works with routes
+@app.route("/")
+def welcome():
+    return (
+        f"Welcome to the Warehouse of Housing Data API!<br/>"
+        f"Available Routes:<br/>"
+        f"/api/v1.0/all_data<br/>"
+        f"/api/v1.0/data_2016<br/>"
+    )
 
 ## all data for all common years
 @app.route("/api/v1.0/all_data")

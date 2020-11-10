@@ -150,7 +150,7 @@ function makeResponsive() {
   };
   // original path = /plot_code/scatter/data/data.csv
   const url = "/api/v1.0/data_2016";
-  d3.csv(url).then(function(response) {
+  d3.json(url).then(function(response) {
 
 
     let allData = response;
