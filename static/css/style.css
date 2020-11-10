@@ -3,6 +3,9 @@
     margin-bottom: 0;
     border-radius: 0;
     background-color: grey;
+    color:white;
+    font-family: "Georgia", serif;
+    font-size: 1rem;
   }
   
   .navbar-inverse .navbar-nav>li>a {
