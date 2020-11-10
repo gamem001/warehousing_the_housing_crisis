@@ -148,8 +148,8 @@ function makeResponsive() {
   
     return circlesGroup;
   };
-
-  const url = "/plot_code/scatter/data/data.csv";
+  // original path = /plot_code/scatter/data/data.csv
+  const url = "/api/v1.0/data_2016";
   d3.csv(url).then(function(response) {
 
 
@@ -163,7 +163,6 @@ function makeResponsive() {
       data.avg_sale_price = +data.avg_sale_price;
     });
     console.log(allData);
-    console.log('hello world');
     // xLinearScale function above csv import
     let xLinearScale = xScale(allData, someX);
     let yLinearScale = yScale(allData, someY);
