@@ -3,7 +3,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import requests
 import numpy as np
 import sqlite3
@@ -32,12 +32,12 @@ home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 
 @app.route("/")
 def welcome():
-    return (
-        f"Welcome to the Warehouse of Housing Data API!<br/>"
-        f"Available Routes:<br/>"
-        f"/api/v1.0/all_data<br/>"
-        f"/api/v1.0/data_2016<br/>"
-    )
+    return render_template("index.html")
+    #     f"Welcome to the Warehouse of Housing Data API!<br/>"
+    #     f"Available Routes:<br/>"
+    #     f"/api/v1.0/all_data<br/>"
+    #     f"/api/v1.0/data_2016<br/>"
+    # )
 
 @app.route("/api/v1.0/all_data")
 
@@ -61,7 +61,7 @@ def all_data():
     temp_3 = all_states_rent_homeless_home_income.dropna()
     temp_4 = temp_3.drop(['Abbrev'], axis=1)
 
-    all_data = temp_4.to_dict()
+    all_data = temp_4.to_dict('records')
     
     return jsonify(all_data)
 
@@ -88,7 +88,7 @@ def data_2016():
     temp = states_rent_homeless_income_home.drop(['Abbrev'], axis=1)
     temp_2 = temp.dropna()
 
-    all_data_2016 = temp_2.to_dict()
+    all_data_2016 = temp_2.to_dict('records')
 
     return jsonify(all_data_2016)
 
