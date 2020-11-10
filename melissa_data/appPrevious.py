@@ -3,35 +3,24 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 import requests
 import numpy as np
 import sqlite3
+from flask_cors import cross_origin, CORS
 
 ##delect , func from import create_engine
 #################################################
 # Database Setup
 #################################################
 engine = create_engine("sqlite:///housing_data.db")
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'housing_data.db
-# reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(engine, reflect=True)
-# # Save references to each table
-# rent_data = Base.classes.rental_pricing
-# # Station = Base.classes.station
-# # Create our session (link) from Python to the DB
-# session = Session(engine)
-# Flask Setup
 #################################################
 app = Flask(__name__)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 #################################################
 # Flask Routes
 #################################################
 
-## join tables in here! 
-## hit this endpoint with js
 rent_2016 = pd.read_sql('SELECT * FROM rental_pricing WHERE year = 2016', con=engine)
 homeless_2016 = pd.read_sql('SELECT * FROM homelessness WHERE year = 2016', con=engine)
 states = pd.read_sql('SELECT * FROM states', con=engine) 
@@ -44,23 +33,15 @@ income_data = pd.read_sql('SELECT * FROM avg_income_data', con=engine)
 home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 
 @app.route("/")
+@cross_origin()
 def welcome():
-    return render_template("index.html")
+    data_return_1 = all_data()
+    return render_template("index.html", data_1 = data_return_1)
 
-# @app.route("/")
-# def welcome():
-#     return (
-#         f"Welcome to the Warehouse of Housing Data API!<br/>"
-#         f"Available Routes:<br/>"
-#         f"/api/v1.0/all_data<br/>"
-#         f"/api/v1.0/data_2016<br/>"
-#     )
 
 @app.route("/api/v1.0/all_data")
-## need to join basic data here
-## need to filter all data on year: 2016
-## need to total homelessness per state for year 2016
-## need to join all data on state & year
+@cross_origin()
+
 def all_data():
     session = Session(engine)
     
@@ -80,9 +61,8 @@ def all_data():
     all_states_rent_homeless_home_income = pd.merge(all_states_rent_homeless_home, income_data_cedit[['State','year','average_incomes']], on = ['year','State'], how = 'left')
     temp_3 = all_states_rent_homeless_home_income.dropna()
     temp_4 = temp_3.drop(['Abbrev'], axis=1)
-    # to_dict('records')
-    all_data = temp_4.to_dict('records')
-    # precip_dictionary = {date: prcp for prcp, date in result}
+
+    all_data = temp_4.to_dict()
     return jsonify(all_data)
 
     session.close()
@@ -115,53 +95,6 @@ def data_2016():
 
     session.close()
 
-# @app.route("/api/v1.0/tobs")
-# def tobs():
-#     # Create session (link) from Python to the DB
-#     session = Session(engine)
-
-#     # Query for beginning and ending dates for the last year of data.
-#     last_date = session.query(Measurement.date).order_by(Measurement.date.desc()).first().date
-#     query_date = dt.date(2017, 8, 23) - dt.timedelta(days=365)
-
-#     # Query for temps and dates from the most active station for the last year of data.
-#     tobs_info = session.query(Measurement.tobs, Measurement.date).\
-#     filter(Measurement.station == 'USC00519281').\
-#     filter(Measurement.date >= query_date).\
-#     filter(Measurement.date <= last_date).\
-#     order_by(Measurement.date).all()
-#     tobs = list(np.ravel(tobs_info))
-#     return jsonify(tobs)
-
-#     session.close()
-
-
-# @app.route("/api/v1.0/temp/<start>")
-# @app.route("/api/v1.0/temp/<start>/<end>")
-# def stats(start=None, end=None):
-
-#     session = Session(engine)
-
-#     """Return TMIN, TAVG, TMAX."""
-#     # Select statement
-#     sel = [func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)]
-#     if end is None:
-#         # calculate TMIN, TAVG, TMAX for dates greater than start
-#         results = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
-#             filter(Measurement.date >= start).all()
-#         # Unravel results into a 1D array and convert to a list
-#         temps = list(np.ravel(results))
-#         return jsonify(temps)
-#     # calculate TMIN, TAVG, TMAX with start and stop
-#     results = session.query(*sel).\
-#         filter(Measurement.date >= start).\
-#         filter(Measurement.date <= end).all()
-#     # Unravel results into a 1D array and convert to a list
-#     temps = list(np.ravel(results))
-#     return jsonify(temps)
-    
-#     session.close()
-
-
 if __name__ == '__main__':
     app.run()
+
