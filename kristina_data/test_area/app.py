@@ -3,7 +3,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify#, render_template
 import requests
 import numpy as np
 import sqlite3
@@ -32,12 +32,13 @@ home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 
 @app.route("/")
 def welcome():
-    return render_template("index.html")
-    #     f"Welcome to the Warehouse of Housing Data API!<br/>"
-    #     f"Available Routes:<br/>"
-    #     f"/api/v1.0/all_data<br/>"
-    #     f"/api/v1.0/data_2016<br/>"
-    # )
+    # return render_template("index.html") 
+    return(
+        f"Welcome to the Warehouse of Housing Data API!<br/>"
+        f"Available Routes:<br/>"
+        f"/api/v1.0/all_data<br/>"
+        f"/api/v1.0/data_2016<br/>"
+     )
 
 @app.route("/api/v1.0/all_data")
 

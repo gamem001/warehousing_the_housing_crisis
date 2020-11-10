@@ -1,0 +1,118 @@
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    background-color: grey;
+    color:white;
+    font-family: "Georgia", serif;
+    font-size: 1rem;
+  }
+  
+  .navbar-inverse .navbar-nav>li>a {
+    color: white;
+  }
+  
+  .navbar-inverse .navbar-brand {
+    color: white;
+  }
+  
+  .link-text-color {
+    color: black;
+  }
+  
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+  
+  body {
+      background-color: black;
+      background-image: url("../images/california.jpg");
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+      background-size: 100% 100%;
+    }
+  
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;} 
+  }
+  .landing-image {
+    height: 200px;
+  }
+  @media screen and (min-width: 1199px) {
+    .landing-image {
+      height: 245px;
+      width: 100%;
+    }
+  }
+  
+  .weather-image {
+    width: 90%;
+  }
+  
+  .intro-text {
+    font-size: 2rem;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+  }
+  @media screen and (max-width: 1199px) {
+    .intro-text {
+      font-size: 1rem;
+    }
+  }
+  
+  .landing-title {
+    font-size: 3rem;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .column-card-styling {
+    background-color: white;
+    height: 150%;
+  }
+  
+  @media screen and (min-width: 1199px) {
+    .column-card-styling {
+      margin: 2rem;
+    }
+    .single-card-margin {
+      margin: 0;
+      margin-top: 2rem;
+    }
+  }
+  
+  .vis-img {
+    width: 100%;
+    height: 400px;
+    max-width: 400px;
+  }
+  
+  
+  /* .column-spacer {
+    margin-left: 5%;
+  } */
+  
+  .row-background {
+    background-color: white;
+  }
+  
+  .h2 {
+    color: black;
+    margin-left: 20px;
+    font-size: 2rem;
+  }
+  
+  .fancy-borders {
+    border-style: solid;
+    border-width: 5px;
+    border-color: black;
+    border-radius: 20px;
+  }
