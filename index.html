@@ -5,10 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/plot_code/webpage_css/site_style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="icon" type="image/png" href="/static/images/favicon.png">
+  <link rel="stylesheet" href="plot_code/scatter/css/style.css">
+  <link rel="stylesheet" href="plot_code/scatter/css/d3Style.css">
+  <link rel="icon" type="image/png" href="/plot_code/images/favicon.png">
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">Go Home</a>
+      <a href="index.html"><img border="0" alt="W3Schools" src="/plot_code/images/blue_lady.jpg" width="50" height="60"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -74,40 +76,23 @@
       </div>
       <div class="col-lg-12 text-center column-spacer column-card-styling fancy-borders"> 
           <div class="row align-items-end">
-          <h2 class="landing-title"><strong>2007-2016<br> Click The Interactive Visuals to Learn More</strong></h2>
+            <h2 class="landing-title"><strong>2007-2016<br> Click The Interactive Visuals to Learn More</strong></h2>
               <div class="container">
+            </div>
+          <div class="row">
+            <div class="col-xs-12  col-md-9">
+              <div id="scatter">
+            </div>
           </div>
-              <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Test Subject ID No.:</h5>
-          <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Demographic Info</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body"></div>
-          <div style="font-weight:bold;"></div>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
       </div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./static/test/StarterCode/assets/js/app.js"></script>
+  <script type="text/javascript" src="plot_code/scatter/app3.js">
 </body>
 </html>
 
