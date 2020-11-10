@@ -6,9 +6,9 @@ In truth, homelessness is a perpetual shame of humanity. It’s a tragedy that t
 Unfortunately, not a lot of people realize this. The common notion is that homelessness is somewhat a choice. That the homeless deserve what they are going through because they didn’t study hard or look for a job. But no, it isn’t like that at all.
 </p>
 <br>
-<p style="text-align: center;"><i>Judy Ponio ~ https://ofhsoupkitchen.org/quotes-that-will-open-your-eyes-about-homeless</i></p>
+<p style="text-align: center"><i>Judy Ponio ~ https://ofhsoupkitchen.org/quotes-that-will-open-your-eyes-about-homeless</i></p>
 
-![homelessness](./static/images/homeless.jpg)
+![homelessness](./plot_code/images/homeless.jpg)
 
 What if the solution were that simple though? What if by merely spreading awareness we could solve the widespread problems we see every time we drive into town? Not through donations but through actions. Not by emptying our pockets, but by preventing the systemic abbolition of affordable housing fueled by Capitalistic supply and demand. Personally, I don't recall asking for higher rent and abysmal mortgage payments. 
 
