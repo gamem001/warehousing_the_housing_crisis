@@ -8,15 +8,15 @@ function makeResponsive() {
   }
 
   //setting svgArea
-  let svgWidth = 950;
-  let svgHeight = 700;
+  let svgWidth = 1000;
+  let svgHeight = 900;
 
   // Setting the margins that will be used to get a chart area
   let margin = {
     top: 50,
     right: 20,
     bottom: 80,
-    left: 70
+    left: 100
   };
   
   //chart area
@@ -43,7 +43,7 @@ function makeResponsive() {
   function xScale(allData, someX) {
       // console.log(someX)
       let xLinearScale = d3.scaleLinear()
-        .domain([d3.min(allData, d => d[someX]) * .9, d3.max(allData, d => d[someX]) * 1.1])
+        .domain([d3.min(allData, d => d[someX]) * .2, d3.max(allData, d => d[someX]) * 1.1])
         .range([0, width]);
       return xLinearScale;      
   }
@@ -129,7 +129,7 @@ function makeResponsive() {
         .attr("class", "tooltip")
         .offset([20, -60])
         .html(function(d) {
-        return (`<h5><strong>${d.state}<strong><h5><hr><h6>${labelX}${d[someX]}<h6>${labelY} ${d[someY]}<h6>`);
+        return (`<h5><strong>${d.State}<strong><h5><hr><h6>${labelX}${d[someX]}<h6>${labelY} ${d[someY]}<h6>`);
         });
         // <hr>${label} ${d[someX]}
       
@@ -149,7 +149,7 @@ function makeResponsive() {
     return circlesGroup;
   };
 
-  const url = "/api/v1.0/all_data";
+  const url = "/api/v1.0/data_2016";
   d3.json(url).then(function(response) {
 
 
@@ -206,7 +206,7 @@ function makeResponsive() {
     let textLabels = circleText 
       .attr("x", d => xLinearScale(d[someX]))
       .attr("y", d => yLinearScale(d[someY]))
-      .text(function(d) {return d.abbr})
+      .text(function(d) {return d.Code})
       .attr("font-size", "12px")
       .attr("font-family", "sans-serif")
       .attr("fill", "black")
@@ -237,7 +237,7 @@ function makeResponsive() {
                 
     let avgRent = ylabelsGroup.append('text')
         .attr("transform", "rotate(-90)")
-        .attr('y', 0 - margin.left + 5)
+        .attr('y', 0 - margin.left + 20)
         .attr('x', 0 - (height / 2))
         .attr('dy', '1em')
         .attr("value", "avg_rent")
@@ -247,7 +247,7 @@ function makeResponsive() {
 
     let avgSale = ylabelsGroup.append('text')
         .attr("transform", "rotate(-90)")  
-        .attr('y', 0 - margin.left + 20)
+        .attr('y', 0 - margin.left + 5)
         .attr('x', 0 - (height / 2))
         .attr("dy", "1em")
         .attr('value', "avg_sale_price")
@@ -355,5 +355,5 @@ function makeResponsive() {
   
   makeResponsive();
   
-  // d3.select(window).on('resize', data, makeResponsive);
+  d3.select(window).on('resize', makeResponsive);
   
