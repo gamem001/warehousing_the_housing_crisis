@@ -1,0 +1,344 @@
+/*  ********************* PUBLIC ACCESS *********************  */
+
+function $(id) { return document.getElementById(id) };
+function q(name) {return document.getElementsByClassName(name) };
+var add = document.addEventListener ? 'addEventListener' : 'attachEvent';
+var st = setTimeout;
+
+/*  *********************************************************  */
+
+var banner = (function() {
+	'use strict';
+	function Banner() {
+		//private variables
+		var b = $('banner');
+
+		function onEnablerVisible() {
+			animateIt();
+			function animateIt() 
+			{
+
+//  put timeline here  //////////////////////////////////////////
+			
+			st(function(){
+				$("feeling1").className = "in";
+			},300);
+
+			st(function(){
+				$("feeling2").className = "in";
+			},550);
+
+			st(function(){
+				$("feeling3").className = "in";
+			},800);
+
+			st(function(){
+				$("strip").className = "move1";
+			},1500);	
+
+			st(function(){
+				$("flo2hands").className = "in";
+			},1750);
+
+			st(function(){
+				$("strip").className = "move2";
+			},3500);
+
+			st(function(){
+				$("flo3lines").className = "scale";
+			},3650);
+
+			st(function(){
+				$("strip").className = "move3";
+			},5500);
+
+			st(function(){
+				$("flo5").className = "in";
+			},6000);
+
+			st(function(){
+				$("flo5").className = "out";
+			},6150);
+
+			st(function(){
+				$("flo5").className = "in";
+				$("bubble").className = "in";
+			},6300);
+
+			st(function(){
+				$("flo5").className = "out";
+			},6450);
+			
+			st(function(){
+				$("flo5").className = "in";
+			},6600);
+
+			st(function(){
+				$("flo5").className = "out";
+			},6750);
+
+			st(function(){
+				$("flo5").className = "in";
+			},6900);
+
+			st(function(){
+				$("button1").className = "in";
+				$("button2").className = "in";
+			},7000);
+
+			st(function(){
+				$("flo5").className = "out";
+			},7050);
+
+			st(function(){
+				$("flo5").className = "in";
+			},7200);
+
+			st(function(){
+				$("flo5").className = "out";
+			},7350);
+
+			st(function(){
+				$("flo5").className = "in";
+			},7500);
+
+			st(function(){
+				$("flo5").className = "out";
+			},7650);
+
+			st(function(){
+				$("flo5").className = "in";
+			},7800);
+
+			st(function(){
+				$("flo5").className = "out";
+			},7950);
+
+			st(function(){
+				$("flo5").className = "in";
+			},8100);
+
+			st(function(){
+				$("flo5").className = "out";
+			},8250);
+
+			st(function(){
+				$("flo5").className = "in";
+			},8400);
+
+			st(function(){
+				$("flo5").className = "out";
+			},8550);
+
+			st(function(){
+				$("flo5").className = "in";
+			},8700);
+
+			st(function(){
+				$("flo5").className = "out";
+			},8850);
+
+			st(function(){
+				$("flo5").className = "in";
+			},9000);
+
+			st(function(){
+				$("flo5").className = "out";
+			},9150);
+
+			st(function(){
+				$("flo5").className = "in";
+			},9300);
+
+			st(function(){
+				$("flo5").className = "out";
+			},9450);
+
+			st(function(){
+				$("flo5").className = "in";
+			},9600);
+
+			st(function(){
+				$("flo5").className = "out";
+			},9750);
+
+			st(function(){
+				$("flo5").className = "in";
+			},9900);
+
+			st(function(){
+				$("flo5").className = "out";
+			},10050);
+
+			st(function(){
+				$("flo5").className = "in";
+			},10200);
+
+			st(function(){
+				$("flo5").className = "out";
+			},10350);
+
+			st(function(){
+				$("flo5").className = "in";
+			},10500);
+
+			st(function(){
+				$("flo5").className = "out";
+			},10650);
+
+			st(function(){
+				$("flo5").className = "in";
+			},10800);
+
+			st(function(){
+				$("flo5").className = "out";
+			},10950);
+
+			st(function(){
+				$("flo5").className = "in";
+			},11100);
+
+			st(function(){
+				$("flo5").className = "out";
+			},11250);
+
+			st(function(){
+				$("flo5").className = "in";
+			},11400);
+
+			st(function(){
+				$("flo5").className = "out";
+			},11550);
+
+			st(function(){
+				$("flo5").className = "in";
+			},11700);
+
+			st(function(){
+				$("flo5").className = "out";
+			},11850);
+
+			st(function(){
+				$("flo5").className = "in";
+			},12000);
+
+			st(function(){
+				$("flo5").className = "out";
+			},12150);
+
+			st(function(){
+				$("flo5").className = "in";
+			},12300);
+
+			st(function(){
+				$("flo5").className = "out";
+			},12450);
+
+			st(function(){
+				$("flo5").className = "in";
+			},12600);
+
+			st(function(){
+				$("flo5").className = "out";
+			},12750);
+
+			st(function(){
+				$("flo5").className = "in";
+			},12900);
+
+			st(function(){
+				$("flo5").className = "out";
+			},13050);
+
+			st(function(){
+				$("flo5").className = "in";
+			},13200);
+
+			st(function(){
+				$("flo5").className = "out";
+			},13350);
+
+			st(function(){
+				$("flo5").className = "in";
+			},13500);
+
+			st(function(){
+				$("flo5").className = "out";
+			},13650);
+
+			st(function(){
+				$("flo5").className = "in";
+			},13800);
+
+			st(function(){
+				$("flo5").className = "out";
+			},13950);
+
+			st(function(){
+				$("flo5").className = "in";
+			},14100);
+
+			st(function(){
+				$("flo5").className = "out";
+			},14250);
+
+			st(function(){
+				$("flo5").className = "in";
+			},14400);
+
+			st(function(){
+				$("flo5").className = "out";
+			},14550);
+
+			st(function(){
+				$("flo5").className = "in";
+			},14700);
+
+			st(function(){
+				$("flo5").className = "out";
+			},14850);
+
+			st(function(){
+				$("flo5").className = "in";
+			},15000);
+
+			
+			st(function(){
+                $('flo5').classList = 'in';
+                $('bgExitArea').addEventListener('mouseover',function(){
+                    $('flo5').className = 'out';
+                    });
+                $('bgExitArea').addEventListener('mouseout',function(){
+                    $('flo5').className = "in";
+                });
+            },9100);
+			
+
+
+			
+			
+
+//  button mouse over out  //////////////////////////////////////
+
+			st(function(){
+				$("button").addEventListener('mouseover',function(){
+					$("button2").className = 'mouse';
+				});
+				$("button").addEventListener('mouseout',function(){
+					$("button2").className = "";
+					$("button1").className = 'mouse';
+				});
+			},6100)
+
+		}
+	}
+
+//  privileged methods  /////////////////////////////////////////
+
+		this.init = function() {
+			onEnablerVisible();
+		};
+	}
+	return new Banner();
+
+})();
