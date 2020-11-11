@@ -152,7 +152,6 @@ function makeResponsive() {
   const url = "/api/v1.0/data_2016";
   d3.json(url).then(function(response) {
 
-
     let allData = response;
      
     // parse data
