@@ -1,67 +1,3 @@
-<<<<<<< HEAD
-function makeResponsive() {
-
-  let svgArea = d3.select("#scatter").select("svg");
-
-  //remove elements that are in svgArea
-  if (!svgArea.empty()) {
-    svgArea.remove();
-  }
-
-  //setting svgArea
-  let svgWidth = 1000;
-  let svgHeight = 900;
-
-  // Setting the margins that will be used to get a chart area
-  let margin = {
-    top: 50,
-    right: 20,
-    bottom: 80,
-    left: 100
-  };
-  
-  //chart area
-  let width = svgWidth - margin.left - margin.right;
-  let height = svgHeight - margin.top - margin.bottom;
-
-  // Create an SVG wrapper, append an SVG group that will hold our chart,
-  // and shift the latter by left and top margins.
-  let svg = d3
-    .select("#scatter")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
-
-  // Append an SVG group
-  let chartGroup = svg.append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
-  
-  // Initial Params
-  let someX = "homeless";
-  let someY = "housing";
-
-  // update x scale when clicking the  X axis label
-  function xScale(allData, someX) {
-      // console.log(someX)
-      let xLinearScale = d3.scaleLinear()
-        .domain([d3.min(allData, d => d[someX]) * .2, d3.max(allData, d => d[someX]) * 1.1])
-        .range([0, width]);
-      return xLinearScale;      
-  }
-
-  // update y scale when clicking the y axis label
-  function yScale(allData, someY) {
-      let yLinearScale = d3.scaleLinear()
-          .domain([d3.min(allData, d => d[someY]) * .9, d3.max(allData, d=> d[someY]) * 1.1])
-          .range([height, margin.top]);
-      return yLinearScale;
-  }
-    // update xAxis on click
-  function renderAxesX(xAxisScale, xAxis) {
-      // console.log(xAxis)
-      let bottomAxis = d3.axisBottom(xAxisScale);
-      xAxis.transition()
-=======
 
 let svgArea = d3.select("#scatter").select("svg");
 
@@ -157,7 +93,6 @@ function renderTextY(textLabels, yAxisScale, someY) {
 function renderCirclesX(circlesGroup, xAxisScale, someX) {
     // console.log("render circles");
     circlesGroup.transition()
->>>>>>> 3c12106936edb93e6e422d8c187724468f827a8e
         .duration(1000)
         .attr("cx", d => xAxisScale(d[someX]));    
 return circlesGroup;
