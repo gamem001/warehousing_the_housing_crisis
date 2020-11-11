@@ -1,4 +1,4 @@
-function makeResponsive() {
+
 
   let svgArea = d3.select("#scatter").select("svg");
 
@@ -351,9 +351,5 @@ function makeResponsive() {
       console.log(error);
   });
 
-}
-  
-  makeResponsive();
-  
-  d3.select(window).on('resize', makeResponsive);
+
   
