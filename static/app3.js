@@ -7,8 +7,8 @@ if (!svgArea.empty()) {
 }
 
 //setting svgArea
-let svgWidth = 1000;
-let svgHeight = 900;
+let svgWidth = 900;
+let svgHeight = 600;
 
 // Setting the margins that will be used to get a chart area
 let margin = {
@@ -137,6 +137,7 @@ function updateToolTip(someX, someY, circlesGroup) {
   circlesGroup.on("mouseover", function(data) {
     toolTip.show(data)
       .style("display", "block")
+      .style("background-color", "#5ac764")
       .style("left", d3.event.pageX + 'px')
       .style("top", d3.event.pageY + "px");
   })
@@ -219,7 +220,7 @@ d3.json(url).then(function(response) {
   // one label on x axis
   let homelessLabel = xlabelsGroup.append("text")
     .attr("x", 0)
-    .attr("y", 20)
+    .attr("y", 40)
     .attr("value", "Total_Homeless") // value to grab for event listener
     .classed("active", true)
     .text("Total Homeless");
@@ -227,7 +228,7 @@ d3.json(url).then(function(response) {
   //another label on x axis
   let avgIncome = xlabelsGroup.append("text")
     .attr("x", 0)
-    .attr("y", 40)
+    .attr("y", 20)
     .attr("value", "average_incomes") // value to grab for event listener
     .classed("inactive", true)
     .text("Median Income");
@@ -246,7 +247,7 @@ d3.json(url).then(function(response) {
 
   let avgSale = ylabelsGroup.append('text')
       .attr("transform", "rotate(-90)")  
-      .attr('y', 0 - margin.left + 5)
+      .attr('y', 0 - margin.left + 0)
       .attr('x', 0 - (height / 2))
       .attr("dy", "1em")
       .attr('value', "avg_sale_price")

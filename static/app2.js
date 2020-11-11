@@ -1,5 +1,6 @@
 let dropItems = ['Total Homeless','Average Income', 'Average Rental Price', 'Average House Price']
 let whatever = {'Total Homeless':'tot_homeless','Average Income':'avg_income', 'Average Rental Price':'rent_data', 'Average House Price':'avg_sale'}
+let selectId 
 dropItems.forEach(dropDownMenu => {
     d3.select("#selDataset")
     // option is the html element
@@ -13,7 +14,7 @@ function handleSubmit() {
     // use this to prevent the page from refreshing... may or may not be necessary.
     d3.event.preventDefault();
     // select the value from the dropdown
-    let selectedId = d3.select('#selDataset').node().value;
+    selectedId = d3.select('#selDataset').node().value;
     let selectedObj = whatever[selectedId] 
     console.log(selectedObj);
     // build your plots
@@ -61,12 +62,18 @@ function buildMap(cat) {
             }
         }];
         var layout = {
-            title: '2016 Homeless Population',
+            title: `2016 ${selectedId}`,
             geo:{
                 scope: 'usa'
             }
         };
         Plotly.newPlot("choropleth", choroData, layout);
+        var update = {
+            width: 900,  // or any new width
+            height: 600  // " "
+          };
+          
+        Plotly.relayout('choropleth', update);
     console.log(allData);
     });
 };
