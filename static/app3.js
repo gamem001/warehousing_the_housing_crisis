@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 function makeResponsive() {
-=======
-
->>>>>>> 038f031fb29eb8030b42a06897861a687b0dcf9e
 
   let svgArea = d3.select("#scatter").select("svg");
 
