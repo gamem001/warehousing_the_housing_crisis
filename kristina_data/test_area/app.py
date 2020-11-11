@@ -35,7 +35,7 @@ home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 ## need return to reflect the index
 @app.route("/")
 def welcome():
-    return render_template("index.html")
+    return render_template("index_v2.html")
 
 ## Initializing the api so we know it works with routes
 # @app.route("/")
