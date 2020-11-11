@@ -1,4 +1,15 @@
-
+//d3.json(input[, init]);
+function init() {
+  d3.json('/api/v1.0/data_2016').then((input) => {
+      console.log(input);
+      data = input;
+      //populate dropdown menu with 'name' id's
+      input['names'].forEach(dropDown => {
+          d3.select("#selDataset")
+              .append("option")
+              .text(dropDown)
+              .property("value", dropDown)
+      })
 
   let svgArea = d3.select("#scatter").select("svg");
 
@@ -43,7 +54,7 @@
   function xScale(allData, someX) {
       // console.log(someX)
       let xLinearScale = d3.scaleLinear()
-        .domain([d3.min(allData, d => d[someX]) * .2, d3.max(allData, d => d[someX]) * 1.1])
+        .domain([d3.min(allData, d => d[someX]) * .5, d3.max(allData, d => d[someX]) * 1.1])
         .range([0, width]);
       return xLinearScale;      
   }
