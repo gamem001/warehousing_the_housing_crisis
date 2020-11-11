@@ -116,3 +116,7 @@
     border-color: black;
     border-radius: 20px;
   }
+
+  #scatter {
+    margin-left: 11%;
+  }

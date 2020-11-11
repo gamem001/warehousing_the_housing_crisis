@@ -1,0 +1,14 @@
+@media screen and (min-width: 1199px) {
+    .column-card-styling {
+      margin: 2rem;
+    }
+    .single-card-margin {
+      margin: 0;
+      margin-top: 2rem;
+    }
+  }
+
+    .chart {
+    display: block;
+    margin: 0;
+    }
