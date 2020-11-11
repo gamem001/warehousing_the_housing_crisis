@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 function makeResponsive() {
+=======
+
+>>>>>>> 038f031fb29eb8030b42a06897861a687b0dcf9e
 
   let svgArea = d3.select("#scatter").select("svg");
 
@@ -351,9 +355,13 @@ function makeResponsive() {
       console.log(error);
   });
 
+<<<<<<< HEAD
 }
   
   makeResponsive();
   
   d3.select(window).on('resize', makeResponsive);
+=======
+
+>>>>>>> 038f031fb29eb8030b42a06897861a687b0dcf9e
   
