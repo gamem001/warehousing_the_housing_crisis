@@ -1,112 +1,94 @@
 
+let dropItems = ['Total Homeless','Average Income', 'Average Rental Price', 'Average House Price']
 
-// import data with d3 and json and set dropdown menu to names array
-const url = "/api/v1.0/data_2016";
-d3.json(url).then(function(response) {
-    let allData= response;
+let whatever = {'Total Homeless':'tot_homeless','Average Income':'avg_income', 'Average Rental Price':'rent_data', 'Average House Price':'avg_sale'}
 
-    var state_name = [];
-    var state_abbrev = [];
-    var rent_data = [];
-    var tot_homeless = [];
-    var avg_income = [];
-    var avg_sale = [];
-
-    allData.forEach(function(data) {
-
-        state_name.push(data.State);
-        state_abbrev.push(data.Code);
-        rent_data.push(data.avg_rent);
-        tot_homeless.push(data.Total_Homeless);
-        avg_income.push(data.average_incomes);
-        avg_sale.push(data.avg_sale_price);
-        
-    });  
-
-    console.log(state_abbrev);
-    console.log(rent_data);
-
-    let choroData = [{
-        type: 'choropleth',
-        locationmode: 'USA-states',
-        locations: state_abbrev,
-        z: rent_data,
-        text: state_name,
-        colorscale: 'Viridis',
-        colorbar: {
-            title: '$ USD',
-            thickness: 10
-        },
-        marker: {
-            line:{
-                color: 'rgb(200,200,200)',
-                width: 1
-            }
-        }
-    }];
-
-
-    var layout = {
-        title: '2016 Homeless Population',
-        geo:{
-            scope: 'usa'
-        }
-    };
-
-    Plotly.newPlot("choropleth", choroData, layout);
-
-  console.log(allData);
+dropItems.forEach(dropDownMenu => {
+    d3.select("#selDataset")
+    // option is the html element
+    .append("option")
+    .text(dropDownMenu)
+    .property("value", dropDownMenu)
 });
 
+// listens for when there is a change to the selDataset, when there is a change then it runs function updateDisplay
+d3.selectAll('#selDataset').on("change", handleSubmit); 
 
 
-// function(choroData){
+function handleSubmit() {
+    // use this to prevent the page from refreshing... may or may not be necessary.
+    d3.event.preventDefault();
 
-//       let choroData = [{
-//           type: 'choropleth',
-//           locationmode: 'USA-states',
-//           locations: data.Codes,
-//           z: unpack(rows, 'total exports'),
-//           text: unpack(rows, 'state'),
-//           colorscale: [
-//               [0, 'rgb(242,240,247)'], [0.2, 'rgb(218,218,235)'],
-//               [0.4, 'rgb(188,189,220)'], [0.6, 'rgb(158,154,200)'],
-//               [0.8, 'rgb(117,107,177)'], [1, 'rgb(84,39,143)']
-//           ],
-//           colorbar: {
-//               title: 'Millions USD',
-//               thickness: 0.2
-//           },
-//           marker: {
-//               line:{
-//                   color: 'rgb(255,255,255)',
-//                   width: 2
-//               }
-//           }
-//       }];
+    // select the value from the dropdown
+    let selectedId = d3.select('#selDataset').node().value;
+
+    let selectedObj = whatever[selectedId] 
+    console.log(selectedObj);
+
+    // build your plots
+    buildMap(selectedObj);
+};
+
+function buildMap(cat) {
+// import data with d3 and json and set dropdown menu to names array
+    const url = "/api/v1.0/data_2016";
+    d3.json(url).then(function(response) {
+        let allData= response;
+        let anything = {'state_name':[], 
+                        'state_abbrev':[],
+                        'rent_data':[],
+                        'tot_homeless':[],
+                        'avg_income':[],
+                        'avg_sale': []};
+
+        allData.forEach(function(data) {
+
+            anything.state_name.push(data.State);
+            anything.state_abbrev.push(data.Code);
+            anything.rent_data.push(data.avg_rent);
+            anything.tot_homeless.push(data.Total_Homeless);
+            anything.avg_income.push(data.average_incomes);
+            anything.avg_sale.push(data.avg_sale_price);
+            
+        });  
+
+        //console.log(state_abbrev);
+        //console.log(rent_data);
+        console.log(anything['rent_data']);
+        console.log(anything[cat]);
+
+        
+        let choroData = [{
+            type: 'choropleth',
+            locationmode: 'USA-states',
+            locations: anything['state_abbrev'],
+            z: anything[cat],
+            text: anything['state_name'],
+            colorscale: 'Viridis',
+            colorbar: {
+                title: '$ USD',
+                thickness: 10
+            },
+            marker: {
+                line:{
+                    color: 'rgb(200,200,200)',
+                    width: 1
+                }
+            }
+        }];
 
 
-//       var layout = {
-//           title: '2011 US Agriculture Exports by State',
-//           geo:{
-//               scope: 'usa',
-//               showlakes: true,
-//               lakecolor: 'rgb(255,255,255)'
-//           }
-//       };
+        var layout = {
+            title: '2016 Homeless Population',
+            geo:{
+                scope: 'usa'
+            }
+        };
 
-//       Plotly.newPlot("myDiv", data, layout, {showLink: false});
-// });
-// read the json file in and set it to a variable. Then set that variable to the empty array "data"
-// d3.json("samples.json").then((sample) => {
-//     console.log(sample);
-//     data = sample;
+        Plotly.newPlot("choropleth", choroData, layout);
 
-//     // 
-//     data['states'].forEach(dropDownMenu => {
-//         d3.select("#selDataset")
-//         // option is the html element
-//         .append("option")
-//         .text(dropDownMenu)
-//         .property("value", dropDownMenu)
-//     });
+    console.log(allData);
+    });
+};
+
+
