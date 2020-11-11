@@ -1,6 +1,7 @@
 <p align="center"><strong>Warehousing the Housing Crisis</strong></p>
 <br>
 <p align="center">
+<p align="center">https://warehousing-housing-crisis.herokuapp.com/</p>
 Homelessness is something that many people witness but very few are willing to talk about. Even in mainstream media, homeless people are either vilified or glorified. But very few tackle how it really is to become homeless.
 In truth, homelessness is a perpetual shame of humanity. It’s a tragedy that there are people who own so many houses they have to hire someone to keep track of it for them. And yet, some people have to sleep on the sidewalk because they can’t afford rent.
 Unfortunately, not a lot of people realize this. The common notion is that homelessness is somewhat a choice. That the homeless deserve what they are going through because they didn’t study hard or look for a job. But no, it isn’t like that at all.
