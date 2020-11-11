@@ -29,40 +29,40 @@ function handleSubmit() {
 };
 
 function buildMap(cat) {
-// import data with d3 and json and set dropdown menu to names array
+// import fish with d3 and json and set dropdown menu to names array
     const url = "/api/v1.0/data_2016";
     d3.json(url).then(function(response) {
-        let allData= response;
-        let anything = {'state_name':[], 
+        let allData = response;
+        let dataByYear = {'state_name':[], 
                         'state_abbrev':[],
                         'rent_data':[],
                         'tot_homeless':[],
                         'avg_income':[],
                         'avg_sale': []};
 
-        allData.forEach(function(data) {
+        allData.forEach(function(fish) {
 
-            anything.state_name.push(data.State);
-            anything.state_abbrev.push(data.Code);
-            anything.rent_data.push(data.avg_rent);
-            anything.tot_homeless.push(data.Total_Homeless);
-            anything.avg_income.push(data.average_incomes);
-            anything.avg_sale.push(data.avg_sale_price);
+            dataByYear.state_name.push(fish.State);
+            dataByYear.state_abbrev.push(fish.Code);
+            dataByYear.rent_data.push(fish.avg_rent);
+            dataByYear.tot_homeless.push(fish.Total_Homeless);
+            dataByYear.avg_income.push(fish.average_incomes);
+            dataByYear.avg_sale.push(fish.avg_sale_price);
             
         });  
 
         //console.log(state_abbrev);
         //console.log(rent_data);
-        console.log(anything['rent_data']);
-        console.log(anything[cat]);
+        console.log(dataByYear['rent_data']);
+        console.log(dataByYear[cat]);
 
         
         let choroData = [{
             type: 'choropleth',
             locationmode: 'USA-states',
-            locations: anything['state_abbrev'],
-            z: anything[cat],
-            text: anything['state_name'],
+            locations: dataByYear['state_abbrev'],
+            z: dataByYear[cat],
+            text: dataByYear['state_name'],
             colorscale: 'Viridis',
             colorbar: {
                 title: '$ USD',
@@ -97,31 +97,10 @@ function buildMap(cat) {
 
 
 
-// PLOT CODE STARTS HERE!
+// PLOT CODE STARTS HERE!!!
 
-const url2 = "/api/v1.0/all_data";
+let state_names = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming']
 
-d3.json(url2).then(function(response2) {
-    let yearData= response2;
-    let dataByYear = {'year':[],
-                    'state_name2':[], 
-                    'state_abbrev2':[],
-                    'rent_data2':[],
-                    'tot_homeless2':[],
-                    'avg_income2':[],
-                    'avg_sale2': []};
-
-    yearData.forEach(function(fish) {
-        dataByYear.state_name.push(fish.State);
-        dataByYear.state_abbrev.push(fish.Code);
-        dataByYear.rent_data.push(fish.avg_rent);
-        dataByYear.tot_homeless.push(fish.Total_Homeless);
-        dataByYear.avg_income.push(fish.average_incomes);
-        dataByYear.avg_sale.push(fish.avg_sale_price);
-});
-
-console.log(dataByYear);
-let state_names = dateByYear[state_name]
 
 state_names.forEach(dropDownMenu2 => {
     d3.select("#selState")
@@ -140,65 +119,100 @@ function handleState() {
     d3.event.preventDefault();
 
     // select the value from the dropdown
-    let selectedId2 = d3.select('#selDataset').node().value;
+    let selectedId2 = d3.select('#selState').node().value;
 
     //let selectedObj = whatever[selectedId] 
     console.log(selectedId2);
 
     // build your plots
-    //buildPlot(selectedId2);
+    buildPlot(selectedId2);
 };
 
-// function buildMap(dog)
+function buildPlot(dog) {
+    // import fish with d3 and json and set dropdown menu to names array
+        const url_2 = "/api/v1.0/all_data";
+        d3.json(url_2).then(function(response_2) {
 
-//     yearData.forEach(function(data) {
+            let dataByYear = response_2;
+            console.log(dataByYear);
 
-//         dataByYear.state_name.push(yearData.State);
-//         dataByYear.state_abbrev.push(yearData.Code);
-//         dataByYear.rent_data.push(yearData.avg_rent);
-//         dataByYear.tot_homeless.push(yearData.Total_Homeless);
-//         dataByYear.avg_income.push(yearData.average_incomes);
-//         dataByYear.avg_sale.push(yearData.avg_sale_price);
-        
-//     });  
+            let avengers = dataByYear.filter(thor => thor.State === dog);
+            console.log(avengers);
 
-//         //console.log(state_abbrev);
-//         //console.log(rent_data);
-//         console.log(anything['rent_data']);
-//         console.log(anything[cat]);
+            let filteredByState = {'year':[],
+                            'state_name':[], 
+                            'state_abbrev':[],
+                            'rent_data':[],
+                            'tot_homeless':[],
+                            'avg_income':[],
+                            'avg_sale': []};
+    
+            avengers.forEach(function(fish) {
+                filteredByState.year.push(fish.year);
+                filteredByState.state_name.push(fish.State);
+                filteredByState.state_abbrev.push(fish.Code);
+                filteredByState.rent_data.push(fish.avg_rent);
+                filteredByState.tot_homeless.push(fish.Total_Homeless);
+                filteredByState.avg_income.push(fish.average_incomes);
+                filteredByState.avg_sale.push(fish.avg_sale_price);
+                
+            });  
+    
+            
+            console.log(filteredByState.year);
+            //console.log(rent_data);
+            //console.log(dataByYear['rent_data']);
+ 
+            let trace_rent = {
+            x: filteredByState.year,
+            y: filteredByState.rent_data,
+            name: 'Avg Rent Price',
+            line:{color: '#20A187'},
+            type: 'scatter'
+            };
 
-        
-//         let choroData = [{
-//             type: 'choropleth',
-//             locationmode: 'USA-states',
-//             locations: anything['state_abbrev'],
-//             z: anything[cat],
-//             text: anything['state_name'],
-//             colorscale: 'Viridis',
-//             colorbar: {
-//                 title: '$ USD',
-//                 thickness: 10
-//             },
-//             marker: {
-//                 line:{
-//                     color: 'rgb(200,200,200)',
-//                     width: 1
-//                 }
-//             }
-//         }];
+            let trace_sale = {
+                x: filteredByState.year,
+                y: filteredByState.avg_sale,
+                name: 'Avg Home Sale Price',
+                line:{color: '#440154'},
+                xaxis: 'x2',
+                yaxis: 'y2',
+                type: 'scatter'
+                };
+            
+            let trace_income = {
+                x: filteredByState.year,
+                y: filteredByState.avg_income,
+                name: 'Avg Income',
+                line:{color: '#7ED24F'},
+                xaxis: 'x3',
+                yaxis: 'y3',
+                type: 'scatter'
+              };
 
+            let trace_homeless = {
+                x: filteredByState.year,
+                y: filteredByState.tot_homeless,
+                name: '# of Homeless',
+                line:{color: '#FDE725'},
+                xaxis: 'x4',
+                yaxis: 'y4',
+                type: 'scatter'
+              };  
+            
+            
+            let ugh = [trace_rent, trace_income, trace_sale, trace_homeless];
 
-//         var layout = {
-//             title: '2016 Homeless Population',
-//             geo:{
-//                 scope: 'usa'
-//             }
-//         };
-
-//         Plotly.newPlot("choropleth", choroData, layout);
-
-//     console.log(allData);
-//     });
-// };
-
-
+            let layout = {
+                title: `Data over time for ${dog}`,
+                grid: {rows: 2, columns: 2, pattern: 'independent'},
+                //yaxis:{title: '$'},
+                //yaxis2:{title: '$'},
+                //yaxis3:{title: '$'},
+                //yaxis4:{title: '# of people'},
+            };
+              
+            Plotly.newPlot('linechart', ugh, layout);
+        });
+    };

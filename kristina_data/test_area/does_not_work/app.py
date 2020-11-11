@@ -32,7 +32,7 @@ home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 
 @app.route("/")
 def welcome():
-    return render_template("index.html") 
+    return render_template("index_v2.html") 
     # return(
     #     f"Welcome to the Warehouse of Housing Data API!<br/>"
     #     f"Available Routes:<br/>"
