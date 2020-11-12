@@ -170,7 +170,7 @@ function buildPlot(dog) {
                 //yaxis4:{title: '# of people'},
             };
 
-            Plotly.newPlot("linechart", choroData, layout);
+            Plotly.newPlot("linechart", ugh, layout);
             var update = {
                 width: 900,  // or any new width
                 height: 600  // " "
