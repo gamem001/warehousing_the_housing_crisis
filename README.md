@@ -1,6 +1,7 @@
-<p align="center"><strong>Warehousing the Housing Crisis</strong></p>
+<h1><p align="center"><strong>Warehousing the Housing Crisis</strong></p>
 <br>
 <p align="center">
+</h1>
 <p align="center">https://warehousing-housing-crisis.herokuapp.com/</p>
 Homelessness is something that many people witness but very few are willing to talk about. Even in mainstream media, homeless people are either vilified or glorified. But very few tackle how it really is to become homeless.
 In truth, homelessness is a perpetual shame of humanity. It’s a tragedy that there are people who own so many houses they have to hire someone to keep track of it for them. And yet, some people have to sleep on the sidewalk because they can’t afford rent.
@@ -32,3 +33,17 @@ Users can filter by average income and see how it compares to the average sale p
 :green_heart: For those interested in learning about US organizations dedicated to alleviation, check out our <i>Helpful Organizations</i> links.
 <br>
 :moneybag: Calculator links were lovingly stolen from Zillow/Trulia to help raise awareness of useful resources! 
+
+<strong>Tools Utilized</strong>
+<br>
+ETL: Jupyter Notebook, Pandas, SQLite
+<br>
+Flask API
+<br>
+JavaScript, HTML, CSS, Bootstrap
+<br>
+Plotly/Leaflet/D3.js
+
+<i>Kristina Ruhl, Melissa Ruiz, Asia Hewett</i>
+<br>
+<i>Trilogy Data Analytics Bootcamp 2020</i>
