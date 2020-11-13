@@ -8,17 +8,19 @@ import requests
 import numpy as np
 import sqlite3
 
+##delect , func from import create_engine
 #################################################
 # Database Setup
 #################################################
 engine = create_engine("sqlite:///housing_data.db")
 
+# Flask Setup
 #################################################
 app = Flask(__name__)
 #################################################
 # Flask Routes
 #################################################
-
+## Read in the df's
 rent_2016 = pd.read_sql('SELECT * FROM rental_pricing WHERE year = 2016', con=engine)
 homeless_2016 = pd.read_sql('SELECT * FROM homelessness WHERE year = 2016', con=engine)
 states = pd.read_sql('SELECT * FROM states', con=engine) 
@@ -30,16 +32,22 @@ homeless_data = pd.read_sql('SELECT * FROM homelessness', con=engine)
 income_data = pd.read_sql('SELECT * FROM avg_income_data', con=engine)
 home_price_data = pd.read_sql('SELECT * FROM avg_home_cost', con=engine)
 
+## need return to reflect the index
 @app.route("/")
 def welcome():
-    return render_template("index_v2.html") 
-    # return(
-    #     f"Welcome to the Warehouse of Housing Data API!<br/>"
-    #     f"Available Routes:<br/>"
-    #     f"/api/v1.0/all_data<br/>"
-    #     f"/api/v1.0/data_2016<br/>"
-    #  )
+    return render_template("index.html")
 
+## Initializing the api so we know it works with routes
+# @app.route("/")
+# def welcome():
+#     return (
+#         f"Welcome to the Warehouse of Housing Data API!<br/>"
+#         f"Available Routes:<br/>"
+#         f"/api/v1.0/all_data<br/>"
+#         f"/api/v1.0/data_2016<br/>"
+#     )
+
+## all data for all common years
 @app.route("/api/v1.0/all_data")
 
 def all_data():
@@ -62,13 +70,13 @@ def all_data():
     temp_3 = all_states_rent_homeless_home_income.dropna()
     temp_4 = temp_3.drop(['Abbrev'], axis=1)
 
+    ## added records to return an array of objects
     all_data = temp_4.to_dict('records')
-    
     return jsonify(all_data)
 
     session.close()
 
-
+## only all df's merged for the year 2016
 @app.route("/api/v1.0/data_2016")
 def data_2016():
     session = Session(engine)
@@ -95,7 +103,5 @@ def data_2016():
 
     session.close()
 
-
 if __name__ == '__main__':
     app.run()
-
