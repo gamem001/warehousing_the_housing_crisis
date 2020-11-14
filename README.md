@@ -22,10 +22,14 @@ What if the solution were that simple though? What if by merely spreading awaren
 
 Using data gathered from the US Census Bureau, HUD, and data scraped from Zillow, Trulia, and various rental forums, we have constructed multiple interactive dashboards that allow users to see the regrettable gap in affordable housing available in their state. 
 
+<p align="center">
+<img align="center" src="static/images/choropleth_map.gif">
+</p>
+
 Users can filter by average income and see how it compares to the average sale price of a home, which can then be used to calculate the average mortgage and rental prices to let visitors of the site determine for themselves whether the high rate of homelessness is related or unrelated to the cost of living.
 
 <p align="center">
-<img align="center" src="static/images/choropleth_map.gif">
+<img align="center" src="static/images/line_plots.gif">
 </p>
 
 :octocat: Links provided in the <i>Contributors</i> dropdown provides links to our github or portfolio pages to learn more about us!
@@ -34,9 +38,6 @@ Users can filter by average income and see how it compares to the average sale p
 <br>
 :moneybag: Calculator links were lovingly stolen from Zillow/Trulia to help raise awareness of useful resources! 
 
-<p align="center">
-<img align="center" src="static/images/line_plots.gif">
-</p>
 
 <strong>Tools Utilized</strong>
 <br>
