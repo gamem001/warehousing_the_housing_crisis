@@ -34,6 +34,10 @@ Users can filter by average income and see how it compares to the average sale p
 <br>
 :moneybag: Calculator links were lovingly stolen from Zillow/Trulia to help raise awareness of useful resources! 
 
+<p align="center">
+<img align="center" src="static/images/line_plots.gif">
+</p>
+
 <strong>Tools Utilized</strong>
 <br>
 ETL: Jupyter Notebook, Pandas, SQLite
